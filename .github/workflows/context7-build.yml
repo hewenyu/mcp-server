@@ -1,4 +1,4 @@
-name: Build and Push Context7 Docker Image
+name: Context7 Build
 
 on:
   workflow_dispatch:
