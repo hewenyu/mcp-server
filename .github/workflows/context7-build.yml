@@ -14,6 +14,7 @@ on:
 
 jobs:
   build-and-push:
+    environment: 'DOCKERHUB'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -40,5 +41,4 @@ jobs:
           tags: |
             hewenyulucky/context7:latest
             hewenyulucky/context7:${{ env.CONTEXT7_COMMIT_SHA }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max 
+          no-cache: true
