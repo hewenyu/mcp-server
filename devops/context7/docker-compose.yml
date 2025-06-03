@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  context7:
+    image: hewenyulucky/context7:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - context7-network
+  
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - context7
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - context7-network
+
+networks:
+  context7-network:
+    driver: bridge
+
+
